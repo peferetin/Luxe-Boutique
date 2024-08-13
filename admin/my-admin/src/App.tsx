@@ -33,23 +33,13 @@ export const App = () => (
       edit={EditGuesser}
       show={ShowGuesser}
     />
+
     <Resource
-      name="cart"
+      name="orders"
       list={ListGuesser}
       edit={EditGuesser}
       show={ShowGuesser}
     />
-    <Resource
-      name="order"
-      list={ListGuesser}
-      edit={EditGuesser}
-      show={ShowGuesser}
-    />
-    <Resource
-      name="checkout"
-      list={ListGuesser}
-      edit={EditGuesser}
-      show={ShowGuesser}
-    />
+
   </Admin>
 );
