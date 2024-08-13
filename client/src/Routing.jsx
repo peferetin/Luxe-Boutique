@@ -13,7 +13,6 @@ import { Cart } from './components/Cart.jsx';
 import Contact from './components/Contact.jsx';
 import Jewelry from './components/Popular/Jewelry.jsx';
 import Categories from './components/Categories.jsx';
-// import CategoryDetails from './components/CategoryDetails.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import AboutUs from './components/FooterComponents/AboutUs.jsx';
 import Faq from './components/FooterComponents/Faq.jsx';
@@ -24,8 +23,6 @@ import Checkout from './components/Payment/Checkout.jsx';
 import ProfileMenu from './components/NavBar/ProfileMenu.jsx';
 import Profile from './components/Profile.jsx';
 
-
-
 const Routing = () => {
 
     return (
@@ -33,8 +30,6 @@ const Routing = () => {
             <NavBar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
-
-
                 <Route path="/dresses" element={<Dresses />} />
                 <Route path="/handbags" element={<Handbags />} />
                 <Route path="/shoes" element={<Shoes />} />
@@ -52,14 +47,7 @@ const Routing = () => {
                 <Route path="/shipping" element={<Shipping />} />
                 <Route path="/address" element={<AddressForm />} />
                 <Route path="/checkout" element={<Checkout />} />
-                {/* <Route path="/profile" element={<ProfileMenu />} /> */}
                 <Route path="/profile" element={<Profile />} />
-
-
-
-
-
-
             </Routes>
             <Footer />
 

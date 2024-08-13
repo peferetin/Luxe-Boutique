@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const Profile = () => {
     const { userData } = useAuth()
     let navigate = useNavigate()
-    const [loading, setLoading] = useState(true)
+
     const [user, setUser] = useState({
         email: '',
         address: {
@@ -26,14 +26,10 @@ const Profile = () => {
         console.log('Hello')
         try {
             const response = await axios.get(`http://localhost:8000/api/users/${userData._id}`)
-            console.log(response.data)
             setUser(response.data)
         }
         catch (err) {
             console.log(err)
-        }
-        finally{
-            setLoading(false)
         }
     }
 
@@ -47,7 +43,6 @@ const Profile = () => {
         e.preventDefault()
         try {
             const response = await axios.put(`http://localhost:8000/api/users/${userData._id}`, { user })
-            console.log(response)
             if (response.data) {
                 alert('User info has been updated')
             }
@@ -65,9 +60,10 @@ const Profile = () => {
         }
     }, [])
 
+
     return (
         <>
-            {userData && !loading && (
+            {userData && user.address && (
 
                 <form onSubmit={handleSubmit} className='max-w-lg ml-6'>
                     <div className="space-y-12 ">
@@ -82,7 +78,7 @@ const Profile = () => {
                                 <div className="mt-2">
                                     <input
                                         value={user.email}
-                                        onChange={e => setUser({...user, email : e.target.value})}
+                                        onChange={handleChange}
                                         type="text"
                                         name="email"
                                         id="email"
@@ -100,17 +96,10 @@ const Profile = () => {
                                     </label>
                                     <div className="mt-2">
                                         <input
-                                            value={user.address ? user.address.name : ''}
-                                            onChange={(e) => {
-                                                setUser({
-                                                    ...user, address: {
-                                                        ...user.address,
-                                                        name: e.target.value
-                                                    }
-                                                })
-                                            }}
+                                            value={user.address.name}
+                                            onChange={handleChange}
                                             type="text"
-                                            name="address.name"
+                                            name="name"
                                             id="name"
                                             autoComplete="given-name"
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -124,15 +113,8 @@ const Profile = () => {
                                     </label>
                                     <div className="mt-2">
                                         <input
-                                            value={user.address ? user.address.lastName : ''}
-                                            onChange={(e) => {
-                                                setUser({
-                                                    ...user, address: {
-                                                        ...user.address,
-                                                        lastName: e.target.value
-                                                    }
-                                                })
-                                            }}
+                                            value={user.address.lastName}
+                                            onChange={handleChange}
                                             type="text"
                                             name="lastName"
                                             id="last-name"
@@ -151,16 +133,12 @@ const Profile = () => {
                                     </label>
                                     <div className="mt-2">
                                         <input
-                                            value={user.address.street ? user.address.street.addressLine1 : ''}
+                                            value={user.address.street.addressLine1}
                                             onChange={(e) => {
-                                                setUser({
-                                                    ...user,
-                                                    address: {
-                                                        ...user.address,
-                                                        street: {
-                                                            ...user.address.street,
-                                                            addressLine1: e.target.value
-                                                        }
+                                                setAddress({
+                                                    ...user, street: {
+                                                        ...user.address.street,
+                                                        addressLine1: e.target.value
                                                     }
                                                 })
                                             }}
@@ -178,16 +156,12 @@ const Profile = () => {
                                     </label>
                                     <div className="mt-2">
                                         <input
-                                            value={user.address.street ? user.address.street.number : ''}
+                                            value={user.address.street.number}
                                             onChange={(e) => {
-                                                setUser({
-                                                    ...user,
-                                                    address: {
-                                                        ...user.address,
-                                                        street: {
-                                                            ...user.address.street,
-                                                            number: e.target.value
-                                                        }
+                                                setAddress({
+                                                    ...user, street: {
+                                                        ...user.address.street,
+                                                        number: e.target.value
                                                     }
                                                 })
                                             }}
@@ -206,15 +180,8 @@ const Profile = () => {
                                     </label>
                                     <div className="mt-2">
                                         <input
-                                            value={user.address ? user.address.city : ''}
-                                            onChange={(e) => {
-                                                setUser({
-                                                    ...user, address: {
-                                                        ...user.address,
-                                                        city: e.target.value
-                                                    }
-                                                })
-                                            }}
+                                            value={user.address.city}
+                                            onChange={handleChange}
                                             type="text"
                                             name="city"
                                             id="city"
@@ -232,15 +199,8 @@ const Profile = () => {
                                     </label>
                                     <div className="mt-2">
                                         <input
-                                            value={user.address ? user.address.postalCode : ''}
-                                            onChange={(e) => {
-                                                setUser({
-                                                    ...user, address: {
-                                                        ...user.address,
-                                                        postalCode: e.target.value
-                                                    }
-                                                })
-                                            }}
+                                            value={user.address.postalCode}
+                                            onChange={handleChange}
                                             type="text"
                                             name="postalCode"
                                             id="postal-code"

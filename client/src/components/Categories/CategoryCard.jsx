@@ -1,18 +1,4 @@
 
-// const CategoryCard = ({ name, description }) => {
-//     return (
-//         <div className="bg-blue-600 m-2 text-center rounded-md p-2 max max-w-96">
-//             <li className="flex list-none  py-4 p-8 my-4 font-bold justify-center items-center"> {name}</li>
-//             {/* <p className="font-light">{description}</p> */}
-//         </div>
-//     )
-// }
-
-
-// export default CategoryCard
-
-
-
 const CategoryCard = ({ name, description, image }) => {
     return (
         <div className="bg-gradient-to-r from-blue-500 to-purple-600 m-2 text-center rounded-lg p-4 max-w-md shadow-lg">
