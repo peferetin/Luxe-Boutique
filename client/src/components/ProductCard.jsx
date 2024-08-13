@@ -43,14 +43,14 @@ const ProductCard = ({ image, name, price, quantity, description, _id }) => {
                 <Typography color="green" className="font-semibold text-lg">
                     ${price}
                 </Typography>
-                {/* Uncommented and updated Typographys for description */}
-                <Typography
+
+                {/* <Typography
                     variant="small"
                     color="gray"
                     className="font-normal opacity-75 mt-2"
                 >
                     {description ? description : "No description available."}
-                </Typography>
+                </Typography> */}
             </CardBody>
             <CardFooter className="pt-0">
                 <Button onClick={() => navigate(`/products/${_id}`)}

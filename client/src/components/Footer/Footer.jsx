@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <footer className="bg-gradient-to-r from-gray-700 to-gray-900 text-gray-300 py-12">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="flex justify-evenly">
                     <div>
                         <h3 className="text-xl font-bold mb-4">Luxe Boutique</h3>
                         <p className="text-sm">Discover the epitome of luxury fashion and accessories.</p>
@@ -22,15 +22,15 @@ const Footer = () => {
                             <li><Link to="/shipping" className="hover:text-gray-100 transition-colors">Shipping</Link></li>
                         </ul>
                     </div>
-                    <div>
+                    {/* <div>
                         <h4 className="text-lg font-semibold mb-4">Categories</h4>
                         <ul className="space-y-2">
-                            <li><Link to="/category/handbags" className="hover:text-gray-100 transition-colors">Handbags</Link></li>
-                            <li><Link to="/category/watches" className="hover:text-gray-100 transition-colors">Watches</Link></li>
-                            <li><Link to="/category/jewelry" className="hover:text-gray-100 transition-colors">Jewelry</Link></li>
-                            <li><Link to="/category/shoes" className="hover:text-gray-100 transition-colors">Shoes</Link></li>
+                            <li><Link to="/handbags" className="hover:text-gray-100 transition-colors">Handbags</Link></li>
+                            <li><Link to="/watches" className="hover:text-gray-100 transition-colors">Watches</Link></li>
+                            <li><Link to="/jewelry" className="hover:text-gray-100 transition-colors">Jewelry</Link></li>
+                            <li><Link to="/shoes" className="hover:text-gray-100 transition-colors">Shoes</Link></li>
                         </ul>
-                    </div>
+                    </div> */}
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Stay Connected</h4>
                         <div className="flex space-x-4">

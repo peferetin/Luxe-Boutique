@@ -1,7 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './Home.jsx';
-import Dresses from './components/FooterComponents/Dresses.jsx';
-import Handbags from './components/AllCategories/HandBags.jsx';
 import Shoes from './components/Popular/Shoes.jsx';
 import Watches from './components/Popular/Watches.jsx';
 import Sunglasses from './components/Popular/Sunglasses.jsx';
@@ -30,8 +28,8 @@ const Routing = () => {
             <NavBar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/dresses" element={<Dresses />} />
-                <Route path="/handbags" element={<Handbags />} />
+                {/* <Route path="/dresses" element={<Dresses />} /> */}
+                {/* <Route path="/handbags" element={<Handbags />} /> */}
                 <Route path="/shoes" element={<Shoes />} />
                 <Route path="/watches" element={<Watches />} />
                 <Route path="/sunglasses" element={<Sunglasses />} />

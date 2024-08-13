@@ -31,6 +31,17 @@ const FeaturedProducts = () => {
 
   return (
 
+    // <section className="  mt-20 w-full  max-md:max-w-full  ">
+    //   <h2 className="text-lg font-bold leading-6 text-stone-900 mb-6">
+    //     Featured Products
+    //   </h2>
+    //   <div className="flex flex-wrap gap-5 max-md:flex-col">
+    //     {products.map((product, index) => (
+    //       <ProductCard key={index} {...product} />
+    //     ))}
+    //   </div>
+    // </section>
+
     <section className="  mt-20 w-full  max-md:max-w-full  ">
       <h2 className="text-lg font-bold leading-6 text-stone-900 mb-6">
         Featured Products
