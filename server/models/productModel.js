@@ -27,6 +27,24 @@ const productSchema = new Schema({
     },
     image: {
         type: String,
+    },
+    size: {
+        type: [
+            {
+                type: String,
+                enum: ['S', 'M', 'L', 'XL', 'XXL']
+            }
+        ],
+        required: true
+    },
+    color: {
+        type: [
+            {
+                type: String,
+                enum: ['Red', 'Green', 'Blue', 'Yellow', 'Black', 'White', 'Grey']
+            }
+        ],
+
     }
 });
 

@@ -74,10 +74,10 @@ const getProductByCategory = async (req, res) => {
 
 const createProduct = async (req, res) => {
     // We destructure the properties of the req.body object
-    const { name, price, description, quantity, image, categoryId } = req.body
+    const { name, price, description, quantity, image, categoryId, size, color } = req.body
     try {
         // We create a new category by calling the create method on the Category model by passing the previous destructured properties
-        const newProduct = await ProductModel.create({ name, price, description, quantity, image, categoryId })
+        const newProduct = await ProductModel.create({ name, price, description, quantity, image, categoryId, size, color })
         // We return the new category with a status code 201 (created data)
         return res.status(201).json(newProduct)
     }
