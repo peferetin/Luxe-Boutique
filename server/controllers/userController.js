@@ -50,10 +50,10 @@ const getUserByToken = async (req, res) => {
 const updateUser = async (req, res) => {
     const { userId } = req.params
     const { address } = req.body
-    const { email } = req.body
+    const { user } = req.body
 
     try {
-        const updatedUser = await User.findByIdAndUpdate(userId, { email, address }, { new: true })
+        const updatedUser = await User.findByIdAndUpdate(userId, user, { new: true })
         if (!updatedUser) {
             return res.status(400).json({ error: 'Please update' })
         }
