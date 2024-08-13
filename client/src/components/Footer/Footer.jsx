@@ -3,13 +3,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'; // Importing icons from react-icons
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+    let navigate = useNavigate();
     return (
         <footer className="bg-gradient-to-r from-gray-700 to-gray-900 text-gray-300 py-12">
             <div className="container mx-auto px-4">
                 <div className="flex justify-evenly">
-                    <div>
+                    <div style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
                         <h3 className="text-xl font-bold mb-4">Luxe Boutique</h3>
                         <p className="text-sm">Discover the epitome of luxury fashion and accessories.</p>
                     </div>
