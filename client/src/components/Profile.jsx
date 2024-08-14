@@ -23,11 +23,21 @@ const Profile = () => {
     })
 
     const getUserById = async () => {
-        console.log('Hello')
         try {
             const response = await axios.get(`http://localhost:8000/api/users/${userData._id}`)
             console.log(response.data)
-            setUser(response.data)
+            setUser(prevUser => ({
+                ...prevUser,
+                ...response.data,
+                address: {
+                    ...prevUser.address,
+                    ...response.data.address,
+                    street: {
+                        ...prevUser.address.street,
+                        ...response.data.address?.street
+                    }
+                }
+            }));
         }
         catch (err) {
             console.log(err)
