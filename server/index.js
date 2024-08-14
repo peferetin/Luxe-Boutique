@@ -15,7 +15,12 @@ const app = express();
 const PORT = process.env.PORT
 mongoose.connect(process.env.MONGO_URI)
 
-app.use(cors());
+
+const corsOptions = {
+    exposedHeaders: ['Content-Range'],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
