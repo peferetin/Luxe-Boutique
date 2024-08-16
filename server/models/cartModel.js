@@ -20,6 +20,23 @@ const CartProductSchema = new Schema({
     }, name: {
         type: String,
         required: true
+    }, size: {
+        type: [
+            {
+                type: String,
+                enum: ['S', 'M', 'L', 'XL', 'XXL']
+            }
+        ],
+
+    },
+    color: {
+        type: [
+            {
+                type: String,
+                enum: ['Red', 'Green', 'Blue', 'Yellow', 'Black', 'White', 'Grey']
+            }
+        ],
+
     }
 
 }, { _id: false })

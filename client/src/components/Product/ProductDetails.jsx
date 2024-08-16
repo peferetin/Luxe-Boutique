@@ -41,6 +41,8 @@ const ProductDetails = () => {
     if (loading) return <h1>Loading...</h1>;
     if (error) return <h1>Error</h1>;
     console.log(product);
+    console.log(selectedColor, selectedSize);
+
 
     return (
         <div className="flex justify-center">
@@ -140,7 +142,7 @@ const ProductDetails = () => {
                 <CardFooter className="pt-0 bg-white">
                     <Button
                         style={{ backgroundColor: '#34D399' }}
-                        onClick={userData ? () => addToCart(userData._id, product._id, selectedQuantity, product.price, selectedSize, selectedColor, product.name) : () => alert('You need to be connected to add product to the cart')}
+                        onClick={userData ? () => addToCart(userData._id, product._id, selectedQuantity, product.price, product.name, selectedSize, selectedColor,) : () => alert('You need to be connected to add product to the cart')}
                         ripple={true}
                         fullWidth={true}
                         className="text-white shadow-lg hover:bg-green-400 focus:bg-green-400 active:bg-green-500 transition duration-150 ease-in-out"

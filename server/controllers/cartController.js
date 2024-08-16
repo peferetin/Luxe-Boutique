@@ -26,6 +26,7 @@ const getCartByUserID = async (req, res) => {
 }
 
 const createCart = async (req, res) => {
+    console.log(req.body);
 
     const { userId, products } = req.body
     try {
@@ -34,7 +35,12 @@ const createCart = async (req, res) => {
             products: products.map(product => ({
                 product: product.productId,
                 quantity: product.quantity,
-                price: product.price
+                price: product.price,
+                name: product.name,
+                size: product.size ? product.size : null,
+                color: product.color ? product.color : null,
+
+
             })),
             totalPrice: products.reduce((acc, item) => acc + (item.quantity * item.price), 0)
         })
@@ -76,6 +82,7 @@ const deletedProductFromCart = async (req, res) => {
 const updateCart = async (req, res) => {
     const { products } = req.body
     const { cartId } = req.params
+    console.log(req.body);
 
     try {
         const cart = await CartModel.findById(cartId)
@@ -87,6 +94,7 @@ const updateCart = async (req, res) => {
 
         cart.totalPrice = cart.products.reduce((acc, item) => acc + (item.quantity * item.price), 0)
         console.log(cart.totalPrice)
+
 
         await cart.save()
         res.status(200).json(cart)

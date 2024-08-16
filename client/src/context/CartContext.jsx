@@ -15,8 +15,9 @@ export const CartProvider = ({ children }) => {
 
 
 
-    const addToCart = async (name, userID, productId, productQuantity, productPrice) => {
-        console.log(userID, productId, productQuantity, productPrice)
+    const addToCart = async (userID, productId, productQuantity, productPrice, name, size, color) => {
+        console.log(userID, productId, productQuantity, productPrice, name, size, color)
+
         try {
             // Check if cart exists for the user
             const existingCart = await axios.get(`http://localhost:8000/api/cart/user/${userID}`)
@@ -36,7 +37,11 @@ export const CartProvider = ({ children }) => {
                     updatedProducts.push({
                         product: productId,
                         quantity: parseInt(productQuantity),
-                        price: productPrice
+                        price: productPrice,
+                        name: name,
+                        size: size,
+                        color: color
+
                     })
                 }
 
@@ -55,7 +60,9 @@ export const CartProvider = ({ children }) => {
                         productId: productId,
                         quantity: productQuantity,
                         price: productPrice,
-                        name: name
+                        name: name,
+                        size: size,
+                        color: color
                     }]
                 })
                 alert('Product has been added')

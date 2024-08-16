@@ -102,6 +102,8 @@ const Orders = () => {
                         <h3 style={{ margin: '0' }}>Order ID: {order._id}</h3>
                         <p style={{ margin: '0', color: '#424770' }}>Amount: ${order.totalPrice}</p>
                         <p style={{ margin: '0', color: '#424770' }}>Status: {order.status}</p>
+
+
                     </div>
 
                 ))}

@@ -99,6 +99,16 @@ const getOrderByUserId = async (req, res) => {
         res.status(500).json({ error: `${err.message} 🔴` })
     }
 }
+const deleteOrders = async (req, res) => {
+    try {
+        await Order.deleteMany()
+        res.status(200).json({ message: 'All orders deleted' })
+    }
+    catch (err) {
+        console.error('Internal server error 🔴', err)
+        res.status(500).json({ error: `${err.message} 🔴` })
+    }
+}
 
 
 const updateOrderStatus = async (req, res) => {
@@ -119,5 +129,5 @@ const updateOrderStatus = async (req, res) => {
 
 
 
-export { createOrder, getOrderById, getOrderByUserId, updateOrderStatus, getAllOrders }
+export { createOrder, getOrderById, getOrderByUserId, updateOrderStatus, getAllOrders, deleteOrders }
 

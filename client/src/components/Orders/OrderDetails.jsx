@@ -28,26 +28,24 @@ const OrderDetails = () => {
     if (loading) return <h1>Loading...</h1>;
     if (error) return <h1>Error</h1>;
     console.log(orderDetails);
-
     return (
         <>
-            <div>
-                <div style={{ padding: '20px', backgroundColor: '#f0f0f0', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', marginBottom: '10px' }}>
-                    <h3 style={{ margin: '0' }}>Order ID: {orderDetails._id}</h3>
-                    <p style={{ margin: '0', color: '#424770' }}>Amount: ${orderDetails.totalPrice}</p>
-                    <p style={{ margin: '0', color: '#424770' }}>Status: {orderDetails.status}</p>
-                </div>
+            <div className="p-6 bg-blue-100 rounded-lg shadow-md mb-4">
+                <h3 className="text-lg font-semibold text-blue-900">Order ID: {orderDetails._id}</h3>
+                <p className="text-blue-700">Amount: ${orderDetails.totalPrice}</p>
+                <p className="text-blue-700">Status: {orderDetails.status}</p>
             </div>
             {orderDetails.products.map((product) => (
-                <div key={product._id} style={{ padding: '20px', backgroundColor: '#f0f0f0', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', marginBottom: '10px' }}>
-                    <h3 style={{ margin: '0' }}>Product ID: {product._id}</h3>
-                    <p style={{ margin: '0', color: '#424770' }}>Name: {product.name}</p>
-                    <p style={{ margin: '0', color: '#424770' }}>Price: ${product.price}</p>
+                <div key={product._id} className="p-6 bg-green-100 rounded-lg shadow-md mb-4">
+                    <h3 className="text-lg font-semibold text-green-900">Product ID: {product._id}</h3>
+                    <p className="text-green-700">Name: {product.name}</p>
+                    <p className="text-green-700">Price: ${product.price}</p>
+                    <p className="text-green-700">Quantity: {product.quantity}</p>
+                    <p className="text-green-700">Size: {product.size ? product.size : null}</p>
+                    <p className="text-green-700">Color: {product.color ? product.color : null}</p>
                 </div>
             ))}
-
         </>
-
     );
 
 }

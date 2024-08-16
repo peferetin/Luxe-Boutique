@@ -21,8 +21,16 @@ const orderSchema = new Schema({
         name: {
             type: String,
             required: true
+        },
+
+        size: {
+            type: String,
+        },
+        color: {
+            type: String
         }
     }],
+
 
     user: {
         type: Schema.Types.ObjectId,

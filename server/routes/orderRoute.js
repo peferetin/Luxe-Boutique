@@ -1,7 +1,7 @@
 
 
 import { Router } from 'express'
-import { createOrder, getOrderById, getOrderByUserId, updateOrderStatus, getAllOrders } from '../controllers/orderController.js'
+import { createOrder, getOrderById, getOrderByUserId, updateOrderStatus, getAllOrders, deleteOrders } from '../controllers/orderController.js'
 const orderRouter = Router()
 
 
@@ -12,6 +12,8 @@ orderRouter.get('/orders', getAllOrders)
 orderRouter.get('/orders/:orderId', getOrderById)
 
 orderRouter.get('/order/user/:userId', getOrderByUserId)
+
+orderRouter.delete('/orders', deleteOrders)
 
 orderRouter.put('/order/id/:orderId', updateOrderStatus)
 
