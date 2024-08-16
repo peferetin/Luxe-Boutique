@@ -42,7 +42,7 @@ const Profile = () => {
         catch (err) {
             console.log(err)
         }
-        finally{
+        finally {
             setLoading(false)
         }
     }
@@ -94,7 +94,7 @@ const Profile = () => {
                                 <div className="mt-2">
                                     <input
                                         value={user.email}
-                                        onChange={e => setUser({...user, email : e.target.value})}
+                                        onChange={e => setUser({ ...user, email: e.target.value })}
                                         type="text"
                                         name="email"
                                         id="email"

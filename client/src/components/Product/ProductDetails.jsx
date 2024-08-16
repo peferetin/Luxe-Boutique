@@ -89,53 +89,58 @@ const ProductDetails = () => {
                             ))}
                         </select>
                     </div>
-                    {/* Size selection */}
-                    <div className="mt-4">
-                        <Typography
-                            variant="small"
-                            color="black"
-                            className="font-semibold"
-                        >
-                            Size:
-                        </Typography>
-                        <select
-                            value={selectedSize}
-                            onChange={(e) => setSelectedSize(e.target.value)}
-                            className="ml-2 border border-gray-300 rounded-md p-1 text-gray-700"
-                        >
-                            {product.size?.map((size) => (
-                                <option key={size} value={size}>
-                                    {size}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    {/* Color selection */}
-                    <div className="mt-4">
-                        <Typography
-                            variant="small"
-                            color="black"
-                            className="font-semibold"
-                        >
-                            Color:
-                        </Typography>
-                        <select
-                            value={selectedColor}
-                            onChange={(e) => setSelectedColor(e.target.value)}
-                            className="ml-2 border border-gray-300 rounded-md p-1 text-gray-700"
-                        >
-                            {product.color?.map((color) => (
-                                <option key={color} value={color}>
-                                    {color}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+
+                    {product.size && product.size.length > 0 && (
+                        <div className="mt-4">
+                            <Typography
+                                variant="small"
+                                color="black"
+                                className="font-semibold"
+                            >
+                                Size:
+                            </Typography>
+                            <select
+                                value={selectedSize}
+                                onChange={(e) => setSelectedSize(e.target.value)}
+                                className="ml-2 border border-gray-300 rounded-md p-1 text-gray-700"
+                            >
+                                {product.size.map((size) => (
+                                    <option key={size} value={size}>
+                                        {size}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    )}
+
+                    {product.color && product.color.length > 0 && (
+                        <div className="mt-4">
+                            <Typography
+                                variant="small"
+                                color="black"
+                                className="font-semibold"
+                            >
+                                Color:
+                            </Typography>
+                            <select
+                                value={selectedColor}
+                                onChange={(e) => setSelectedColor(e.target.value)}
+                                className="ml-2 border border-gray-300 rounded-md p-1 text-gray-700"
+                            >
+                                {product.color.map((color) => (
+                                    <option key={color} value={color}>
+                                        {color}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    )}
+
                 </CardBody>
                 <CardFooter className="pt-0 bg-white">
                     <Button
                         style={{ backgroundColor: '#34D399' }}
-                        onClick={userData ? () => addToCart(userData._id, product._id, selectedQuantity, product.price, selectedSize, selectedColor) : () => alert('You need to be connected to add product to the cart')}
+                        onClick={userData ? () => addToCart(userData._id, product._id, selectedQuantity, product.price, selectedSize, selectedColor, product.name) : () => alert('You need to be connected to add product to the cart')}
                         ripple={true}
                         fullWidth={true}
                         className="text-white shadow-lg hover:bg-green-400 focus:bg-green-400 active:bg-green-500 transition duration-150 ease-in-out"

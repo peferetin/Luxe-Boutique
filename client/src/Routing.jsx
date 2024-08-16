@@ -20,6 +20,8 @@ import AddressForm from './components/AddressForm.jsx';
 import Checkout from './components/Payment/Checkout.jsx';
 import ProfileMenu from './components/NavBar/ProfileMenu.jsx';
 import Profile from './components/Profile.jsx';
+import Order from './components/Orders/Order.jsx';
+import OrderDetails from './components/Orders/OrderDetails.jsx';
 
 const Routing = () => {
 
@@ -46,6 +48,8 @@ const Routing = () => {
                 <Route path="/address" element={<AddressForm />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/orders" element={<Order />} />
+                <Route path="/orders/:orderId" element={<OrderDetails />} />
             </Routes>
             <Footer />
 

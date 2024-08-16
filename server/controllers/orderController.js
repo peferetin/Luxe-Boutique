@@ -86,7 +86,7 @@ const getOrderByUserId = async (req, res) => {
     const { userId } = req.params
 
     try {
-        const orderByUserID = await Order.findOne({ user: userId })
+        const orderByUserID = await Order.find({ user: userId })
         if (!orderByUserID) {
             return res.status(404).json({ error: 'Order not found' })
         }

@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
 
 
 
-    const addToCart = async (userID, productId, productQuantity, productPrice) => {
+    const addToCart = async (name, userID, productId, productQuantity, productPrice) => {
         console.log(userID, productId, productQuantity, productPrice)
         try {
             // Check if cart exists for the user
@@ -54,7 +54,8 @@ export const CartProvider = ({ children }) => {
                     products: [{
                         productId: productId,
                         quantity: productQuantity,
-                        price: productPrice
+                        price: productPrice,
+                        name: name
                     }]
                 })
                 alert('Product has been added')
