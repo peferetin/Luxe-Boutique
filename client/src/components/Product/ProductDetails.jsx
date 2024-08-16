@@ -16,8 +16,8 @@ const ProductDetails = () => {
     const { addToCart } = useCart();
     const { userData } = useAuth();
     const [selectedQuantity, setSelectedQuantity] = useState(1);
-    const [selectedSize, setSelectedSize] = useState('');
-    const [selectedColor, setSelectedColor] = useState('');
+    const [selectedSize, setSelectedSize] = useState("M");
+    const [selectedColor, setSelectedColor] = useState("Green");
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

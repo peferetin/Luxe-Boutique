@@ -21,6 +21,15 @@ const NavBar = () => {
                     <Link to="/categories" className="hover:text-gray-300">Categories</Link>
                     <Link to="/contact" className="hover:text-gray-300">Contact</Link>
                 </div>
+
+                <img onClick={() => {
+                    addToWishList({ id: _id, name, price, image })
+                    console.log("Added to wish list");
+                }}
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/a90a00d6146e26ae98a2dd8e92d5cbe9cdd272d33a878f88e8f43efe16cd1d92?apiKey=cb130a580d494b2d8274b3edb32534b2&"
+                    className="w-5 aspect-square"
+                />
                 {/* <div className="flex gap-2">
                     <button onClick={() => navigate('/')} className="px-4 py-2.5 text-sm font-bold leading-5 text-center bg-blue-600 hover:bg-blue-500 rounded-xl text-white">
                         Shop Now
