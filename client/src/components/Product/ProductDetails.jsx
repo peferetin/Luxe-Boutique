@@ -103,7 +103,10 @@ const ProductDetails = () => {
                             </Typography>
                             <select
                                 value={selectedSize}
-                                onChange={(e) => setSelectedSize(e.target.value)}
+                                onChange={(e) => {
+                                    setSelectedSize(e.target.value)
+                                    console.log(e.target.value)
+                                }}
                                 className="ml-2 border border-gray-300 rounded-md p-1 text-gray-700"
                             >
                                 {product.size.map((size) => (

@@ -19,15 +19,23 @@ const createOrder = async (req, res) => {
             payment_method: paymentMethodId
         })
 
-        console.log(paymentIntent)
+        
 
         if (paymentIntent.status == 'declined') {
             return res.status(400).json({ error: 'Payment failed' })
         }
 
+        const orderData = cart.products.map(product => ({
+            product: product.product,
+            quantity: product.quantity,
+            price: product.price,
+            name: product.name,
+            size: product.size[0],  // Convert array to string
+            color: product.color[0]  // Convert array to string
+        }));
 
         const newOrder = new Order({
-            products: cart.products,
+            products: orderData,
             user: userId,
             paymentDetails: paymentIntent,
             totalPrice: cart.totalPrice

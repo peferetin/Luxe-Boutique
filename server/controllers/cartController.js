@@ -82,7 +82,6 @@ const deletedProductFromCart = async (req, res) => {
 const updateCart = async (req, res) => {
     const { products } = req.body
     const { cartId } = req.params
-    console.log(req.body);
 
     try {
         const cart = await CartModel.findById(cartId)
@@ -90,10 +89,11 @@ const updateCart = async (req, res) => {
             return res.status(404).json({ error: 'Cart not found' })
         }
 
+        console.log(products)
         cart.products = products
+        
 
         cart.totalPrice = cart.products.reduce((acc, item) => acc + (item.quantity * item.price), 0)
-        console.log(cart.totalPrice)
 
 
         await cart.save()
