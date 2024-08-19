@@ -3,7 +3,7 @@ import { ArrayField, Datagrid, DateField, NumberField, ReferenceField, Show, Sim
 export const OrderShow = () => (
     <Show>
         <SimpleShowLayout>
-        <TextField source="id" />
+            <TextField source="id" />
             <ArrayField source="products">
                 <Datagrid>
                     <TextField source="product" />

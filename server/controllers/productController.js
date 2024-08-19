@@ -99,6 +99,23 @@ const createProducts = async (req, res) => {
     }
 }
 
+const updateProduct = async (req, res) => {
+    const { productID } = req.params
+    try {
+        if (!mongoose.Types.ObjectId.isValid(productID)) {
+            return res.status(400).json({ error: 'Invalid product ID format' })
+        }
+        const updatedProduct = await ProductModel.findByIdAndUpdate(productID, req.body, { new: true })
+        if (!updatedProduct) {
+            return res.status(404).json({ error: 'Product not found' })
+        }
+        return res.status(200).json(updatedProduct)
+    }
+    catch (err) {
+        console.error('Internal server error 🔴', err)
+        res.status(500).json({ error: `${err.message} 🔴` })
+    }
+}
 const getProductsByCategory = async (req, res) => {
     const { categoryID } = req.params
     try {
@@ -130,4 +147,4 @@ const deleteAllProducts = async (req, res) => {
 
 
 
-export { getProducts, createProduct, getProductByName, getProductsByCategory, getProductById, deleteAllProducts, createProducts, getProductByCategory }
+export { getProducts, createProduct, getProductByName, getProductsByCategory, getProductById, deleteAllProducts, createProducts, getProductByCategory, updateProduct }

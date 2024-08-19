@@ -12,7 +12,7 @@ const NavBar = () => {
 
     return (
 
-        <header className="flex justify-between px-10 py-3 border-b border-gray-700 bg-gray-800 text-white w-full">
+        <header className=" sticky top-0 z-10  flex justify-between px-10 py-3 border-b border-gray-700 bg-gray-800 text-white w-full">
             <div style={{ cursor: 'pointer' }} onClick={() => navigate('/')} className="flex gap-4 my-auto text-lg font-bold leading-6">
                 <div>Luxe Boutique</div>
             </div>

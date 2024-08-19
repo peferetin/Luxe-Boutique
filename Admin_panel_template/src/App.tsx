@@ -33,6 +33,7 @@ import {
   ListGuesser,
   EditGuesser,
   ShowGuesser,
+  Edit,
 } from "react-admin";
 import { Layout } from "./Layout";
 import dataProvider from "./dataProvider";
@@ -47,6 +48,11 @@ import { OrderList } from "./List/ordersList";
 import { OrderShow } from "./Show/ordersShow";
 import { UserEdit } from "./Edit/usersEdit";
 import { UserCreate } from "./Create/usersCreate";
+import { ProductsCreate } from "./Create/productsCreate";
+import { CategoriesCreate } from "./Create/categoriesCreate";
+import { CategoriesEdit } from "./Edit/categoriesEdit";
+import { ProductEdit } from "./Edit/productsEdit";
+import { OrdersEdit } from "./Edit/ordersEdit";
 
 export const App = () => (
   <Admin
@@ -65,16 +71,22 @@ export const App = () => (
       name="products"
       list={ProductList}
       show={ProductShow}
+      create={ProductsCreate}
+      edit={ProductEdit}
     />
     <Resource
       name="categories"
       list={CategoryList}
       show={CategoryShow}
+      create={CategoriesCreate}
+      edit={CategoriesEdit}
+
     />
     <Resource
       name="orders"
       list={OrderList}
       show={OrderShow}
+      edit={OrdersEdit}
     />
   </Admin>
 );

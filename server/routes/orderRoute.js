@@ -15,7 +15,7 @@ orderRouter.get('/order/user/:userId', getOrderByUserId)
 
 orderRouter.delete('/orders', deleteOrders)
 
-orderRouter.put('/order/id/:orderId', updateOrderStatus)
+orderRouter.put('/orders/:orderId', updateOrderStatus)
 
 export default orderRouter
 
