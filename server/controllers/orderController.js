@@ -30,8 +30,8 @@ const createOrder = async (req, res) => {
             quantity: product.quantity,
             price: product.price,
             name: product.name,
-            size: product.size[0],  // Convert array to string
-            color: product.color[0]  // Convert array to string
+            size: product.size[0],  
+            color: product.color[0]
         }));
 
         const newOrder = new Order({
