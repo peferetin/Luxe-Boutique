@@ -1,5 +1,4 @@
 
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -19,7 +18,7 @@ const ProductCard = ({ image, name, price, quantity, description, _id }) => {
 
     let navigate = useNavigate();
     return (
-        <Card className="w-72 bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out m-4">
+        <Card className="w-72 bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out m-4 border border-gray-200">
 
             <CardHeader shadow={false} floated={false} className="h-72 cursor-pointer relative">
                 <img
@@ -30,7 +29,7 @@ const ProductCard = ({ image, name, price, quantity, description, _id }) => {
                 {/* Add to Wish logo/icon */}
                 <div className="absolute top-2 right-2 text-white text-lg">
                     <img onClick={() => {
-                        addToWishList({ id: _id, name, price, image })
+                        addToWishList({ _id: _id, name, price, image })
                         console.log("Added to wish list");
                     }}
                         loading="lazy"
@@ -44,10 +43,10 @@ const ProductCard = ({ image, name, price, quantity, description, _id }) => {
                 </div>
             </CardHeader>
             <CardBody onClick={() => navigate(`/products/${_id}`)} className="cursor-pointer p-4">
-                <Typography color="blue" className="font-semibold text-xl mb-2">
+                <Typography color="blue" className="font-serif font-bold text-xl mb-2">
                     {name}
                 </Typography>
-                <Typography color="green" className="font-semibold text-lg">
+                <Typography color="green" className="font-serif font-bold text-lg">
                     ${price}
                 </Typography>
 
@@ -63,7 +62,7 @@ const ProductCard = ({ image, name, price, quantity, description, _id }) => {
                 <Button onClick={() => navigate(`/products/${_id}`)}
                     ripple={false}
                     fullWidth={true}
-                    className="bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-none hover:scale-105 focus:scale-105 active:scale-100 transition-transform duration-200 ease-in-out"
+                    className="bg-gradient-to-r from-green-400 to-green-600 text-white shadow-none hover:scale-105 focus:scale-105 active:scale-100 transition-transform duration-200 ease-in-out"
                 >
                     View Details
                 </Button>

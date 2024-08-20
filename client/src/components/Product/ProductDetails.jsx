@@ -143,12 +143,18 @@ const ProductDetails = () => {
 
                 </CardBody>
                 <CardFooter className="pt-0 bg-white">
+
                     <Button
-                        style={{ backgroundColor: '#34D399' }}
+                        style={{
+                            background: 'linear-gradient(90deg, #34D399 0%, #10B981 100%)',
+                            border: '2px solid #10B981',
+                            fontFamily: 'serif',
+                            fontWeight: 'bold',
+                        }}
                         onClick={userData ? () => addToCart(userData._id, product._id, selectedQuantity, product.price, product.name, selectedSize, selectedColor,) : () => alert('You need to be connected to add product to the cart')}
                         ripple={true}
                         fullWidth={true}
-                        className="text-white shadow-lg hover:bg-green-400 focus:bg-green-400 active:bg-green-500 transition duration-150 ease-in-out"
+                        className="text-white shadow-xl hover:shadow-2xl focus:shadow-2xl active:shadow-lg transition duration-150 ease-in-out transform hover:scale-105 focus:scale-105 active:scale-100"
                     >
                         Add to Cart
                     </Button>

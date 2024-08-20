@@ -30,8 +30,7 @@ const FeaturedProducts = () => {
   }, []);
 
   return (
-
-    <section className="  mt-20 ml-16 w-full  max-md:max  ">
+    <section className="mt-20 ml-16 w-full max-md:ml-0 max-md:mt-10">
       <h2 className="text-lg font-bold leading-6 text-stone-900 mb-6">
         Featured Products
       </h2>
@@ -45,3 +44,6 @@ const FeaturedProducts = () => {
 };
 
 export default FeaturedProducts;
+
+
+
