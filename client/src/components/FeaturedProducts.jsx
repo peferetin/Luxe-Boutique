@@ -13,7 +13,7 @@ const FeaturedProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const product = await axios.get("http://localhost:8000/api/products");
+      const product = await axios.get("https://server-sandy-three.vercel.app/api/products");
       console.log(product.data);
       setProduct(product.data);
 
